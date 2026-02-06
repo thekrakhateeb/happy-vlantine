@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>هديتي لعيد الحب 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif
+        }
+
+        body {
+            background: linear-gradient(120deg,#ff9a9e,#fad0c4,#fad0c4);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+            header h1 {
+                font-size: 2.8rem;
+                animation: glow 2s infinite alternate
+            }
+
+            header p {
+                font-size: 1.2rem;
+                margin-top: 10px
+            }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff,0 0 10px #ff6f91
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff,0 0 30px #ff6f91
+            }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+            .card:hover {
+                transform: translateY(-10px) scale(1.03);
+                box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+            }
+
+            .card img {
+                width: 100%;
+                height: 260px;
+                object-fit: cover;
+                border-radius: 15px;
+            }
+
+            .card h3 {
+                margin: 10px 0;
+                color: #fff;
+                font-size: 1.1rem;
+            }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        /* مودال */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.7);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 60vh;
+            border-radius: 15px;
+        }
+
+        .modal-content p {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .close {
+            margin-top: 10px;
+            padding: 10px 25px;
+            border: none;
+            background: #ff4f81;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* قلوب متحركة */
+        .heart {
+            position: fixed;
+            top: -10px;
+            color: #ff4f81;
+            font-size: 20px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+                opacity: 0
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>💖my self 💖</h1>
+    </header>
+
+    <section class="gallery">
+        <!-- عدلي الصور والنصوص -->
+        <div class="card" onclick="openModal(' ❤️')">
+            <img src="pic/WhatsApp Image 2026-02-06 at 18.38.55 (1).jpeg">
+        </div>
+
+        <div class="card" onclick="openModal(' 😍')">
+            <img src="pic/WhatsApp Image 2026-02-06 at 18.38.55 (2).jpeg">
+        </div>
+
+        <div class="card" onclick="openModal('🌹')">
+            <img src="pic/WhatsApp Image 2026-02-06 at 18.38.55.jpeg">
+        </div>
+    </section>
+
+    <footer>
+        صُنع بكل حب ❤️ | Valentine's Gift
+    </footer>
+
+    <!-- مودال -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <img id="modalImg">
+            <p id="modalText"></p>
+            <button class="close" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+  function openModal(img,text){
+    document.getElementById('modal').style.display='flex';
+    document.getElementById('modalImg').src=img;
+    document.getElementById('modalText').innerText=text;
+  }
+
+  function closeModal(){
+    document.getElementById('modal').style.display='none';
+  }
+
+  // قلوب متساقطة
+  setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.innerHTML='❤';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},6000);
+  },400);
+    </script>
+
+</body>
+</html>
